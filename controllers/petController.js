@@ -1,4 +1,4 @@
-const Pet = require('../models/pet');
+const Pet = require('../models/Pet');
 
 exports.addPet = async (req, res) => {
   try {
