@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://curious-moonbeam-9e237a.netlify.app'],
+  origin: ['http://localhost:5173', 'https://moonlit-rabanadas-efead4.netlify.app/'],
   methods: ['GET', 'POST', 'PUT'],
   credentials: true,
 }));
