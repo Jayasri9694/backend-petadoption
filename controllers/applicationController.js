@@ -30,38 +30,3 @@ exports.listApplications = async (req, res) => {
   }
 };
 
-exports.adoptPet = async (req, res) => {
-  try {
-    const { petId, userId } = req.body;
-
-    // Check if the pet exists
-    const pet = await Pet.findById(petId);
-    if (!pet) {
-      return res.status(404).json({ message: "Pet not found" });
-    }
-
-    // Check if the pet is already adopted
-    if (pet.status === "adopted") {
-      return res.status(400).json({ message: "This pet has already been adopted." });
-    }
-
-    // Update the pet's status to "adopted"
-    pet.status = "adopted";
-    await pet.save();
-
-    // Create an adoption application record
-    const application = new Application({
-      pet: petId,
-      user: userId,
-      status: "approved",
-      date: new Date(),
-    });
-    await application.save();
-
-    res.json({ message: `Successfully adopted ${pet.name}`, application });
-  } catch (err) {
-    console.error("Error in adoptPet:", err);
-    res.status(500).json({ message: "Failed to process adoption", error: err.message });
-  }
-};
-
