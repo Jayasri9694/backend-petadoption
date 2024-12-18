@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const applicationRoutes = require('./routes/applicationRoutes');
+const petRoutes = require('./routes/petRoutes');
 dotenv.config();
 connectDB();
 
@@ -20,7 +20,7 @@ app.use(cors({
 }));
 
 // Use the applicationRoutes for /api paths
-app.use('/api', applicationRoutes);
+app.use('/api', petRoutes);
 
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));

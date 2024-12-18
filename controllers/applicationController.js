@@ -1,5 +1,5 @@
 const Application = require('../models/application');
-const Pet = require('../models/Pet');
+
 
 exports.createApplication = async (req, res) => {
   try {
