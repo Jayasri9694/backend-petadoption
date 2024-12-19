@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://bejewelled-mochi-0a8549.netlify.app'],
+  origin: ['http://localhost:5173', 'https://silver-zuccutto-3c24e2.netlify.app'],
   methods: ['GET', 'POST', 'PUT'],
   credentials: true,
 }));
