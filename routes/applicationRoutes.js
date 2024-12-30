@@ -4,7 +4,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.post('/', authMiddleware, createApplication);
+router.post('/', createApplication);
 router.put('/:id', authMiddleware, updateApplication);
 router.get('/', authMiddleware, listApplications);   
 

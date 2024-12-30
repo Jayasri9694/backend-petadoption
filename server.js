@@ -2,14 +2,14 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const petRoutes = require('./routes/petRoutes');
+const petRoutes=require('./routes/petRoutes');
 dotenv.config();
 connectDB();
 
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello world!');
+  res.send('Welcome to the Pet Adoption Platform API');
 });
 // Middleware
 app.use(express.json());
@@ -20,12 +20,12 @@ app.use(cors({
 }));
 
 // Use the applicationRoutes for /api paths
+app.use('/api/pets', petRoutes); 
 app.use('/api', petRoutes);
 
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/pets', require('./routes/petRoutes'));
 app.use('/api/applications', require('./routes/applicationRoutes'));
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
