@@ -6,9 +6,10 @@ const petSchema = new mongoose.Schema({
   age: { type: Number, required: true },
   temperament: { type: String },
   specialNeeds: { type: String },
-  adopted: { type: Boolean, default: false },
-  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  status: { type: String, default: 'available' }, 
+  isAdopted: { type: Boolean, default: false },
+  photo: { type: String }, // URL to the pet's photo
 });
 
-module.exports = mongoose.model('Pet', petSchema);
+const Pet = mongoose.model('Pet', petSchema);
+
+module.exports = Pet;

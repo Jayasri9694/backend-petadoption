@@ -1,4 +1,4 @@
-const Application = require('../models/application');
+const Application = require('../models/Application');
 
 
 exports.createApplication = async (req, res) => {
@@ -51,4 +51,3 @@ exports.listApplications = async (req, res) => {
     res.status(500).json({ message: 'Failed to retrieve applications' });
   }
 };
-

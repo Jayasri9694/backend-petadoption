@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
 const applicationSchema = new mongoose.Schema({
-  pet: { type: mongoose.Schema.Types.ObjectId, ref: 'Pet', required: true },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  status: { type: String, default: 'Pending' }, // Pending, Approved, Rejected
-  scheduledMeetDate: { type: Date },
-  feedback: { type: String },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  petId: { type: mongoose.Schema.Types.ObjectId, ref: 'Pet', required: true },
+  status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
+  message: { type: String },
+  dateApplied: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Application', applicationSchema);
+const Application = mongoose.model('Application', applicationSchema);
+
+module.exports = Application;
