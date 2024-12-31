@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5173','https://silver-zuccutto-3c24e2.netlify.app'],
+    origin: ['http://localhost:5173','https://moonlit-rabanadas-efead4.netlify.app/'],
     methods: ['GET', 'POST', 'PUT'],
     credentials: true,
   }));
